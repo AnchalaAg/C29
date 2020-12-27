@@ -4,9 +4,9 @@ const Bodies = Matter.Bodies;
 const Constraint = Matter.Constraint;
 
 var engine, world;
-var holder,polygon,ground;
+var holder,polygon1,ground;
 var stand1,stand2;
-var polygon;
+var polygon1;
 var slingShot;
 var polygon_img;
 function preload(){
@@ -58,10 +58,10 @@ function setup() {
   blocks9 = new Block(700,95,30,40);
 
   //polygon holder with slings
-  polygon = Bodies.circle(50,200,20);
+  polygon1 = Bodies.circle(50,200,20);
   World.add(world,polygon);
 
-  slingShot = new Slingshot(this.polygon,{x:100,y:200});
+  slingShot = new Slingshot(this.polygon1,{x:100,y:200});
 
 }
 function draw() {
@@ -112,12 +112,12 @@ function draw() {
   blocks9.display();
   fill("gold");
   imageMode(CENTER)
-  image(polygon_img ,polygon.position.x,polygon.position.y,40,40);
+  image(polygon_img ,polygon1.position.x,polygon1.position.y,40,40);
 
   slingShot.display();
 }
 function mouseDragged(){
-  Matter.Body.setPosition(this.polygon,{x:mouseX,y:mouseY});
+  Matter.Body.setPosition(this.polygon1,{x:mouseX,y:mouseY});
 }
 function mouseReleased(){
   slingShot.fly();
